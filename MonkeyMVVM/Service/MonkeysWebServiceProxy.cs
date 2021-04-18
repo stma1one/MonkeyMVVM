@@ -1,46 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
+using System.Threading.Tasks;
+using MonkeyMVVM.Models;
 
-namespace PageNavigationMonkeys
+namespace MonkeyMVVM.Service
 {
-
-    public class Monkey 
+    class MonkeysWebServiceProxy
     {
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public string Details { get; set; }
-        public string ImageUrl { get; set; }
-        public bool IsFavorite { get; set; }
-
-        
-    }
-
-    public class Monkeys
-    {
-        public ObservableCollection<Monkey> MonkeyList { get; }
-
-        public ICommand DeleteCommand => new Command<Monkey>(Delete);
-
-        private void Delete(Monkey m)
+        public async Task<List<Monkey>> GetAllMonkeysAsync()
         {
-            if (MonkeyList.Contains(m))
-                MonkeyList.Remove(m);
-        }
-
-        public Monkeys()
-        {
-            MonkeyList = new ObservableCollection<Monkey> ();
-            CreateMonkeyCollection();
-        }
-        void CreateMonkeyCollection()
-        {
-            ObservableCollection<Monkey> source = this.MonkeyList;
-            source.Add(new Monkey
+            await Task.Delay(1000);
+            List<Monkey> source = new List<Monkey>();
+           source.Add(new Monkey
             {
                 Name = "Baboon",
                 Location = "Africa & Asia",
@@ -176,7 +148,8 @@ namespace PageNavigationMonkeys
                 ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Gelada-Pavian.jpg/320px-Gelada-Pavian.jpg"
             });
 
-
+            return source;
         }
     }
-}
+  }
+

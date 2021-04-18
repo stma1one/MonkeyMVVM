@@ -16,13 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MonkeyPage.xaml.cs">
+    <Compile Update="Views\MonkeyPage.xaml.cs">
       <DependentUpon>MonkeyPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="MonkeyPage.xaml">
+    <EmbeddedResource Update="Views\MonkeyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
